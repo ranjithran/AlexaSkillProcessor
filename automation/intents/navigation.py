@@ -14,6 +14,7 @@ def launch() -> question:
 def openNormalPrograms(name)->question:
     log("-->"+name)
     url=requests.get("https://alexa2automation.herokuapp.com/read?id=url").text
+    log("--> url "+url)
     requests.get(url+"/command?command="+name)
     return question("Opening "+name).simple_card(title="Automation Skill",content="{0} opened".format(name))
 
